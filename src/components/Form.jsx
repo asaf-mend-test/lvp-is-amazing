@@ -81,7 +81,7 @@ const Form = () => {
         const newTodos = [...todos];
         newTodos[inx].isEditing = !newTodos[inx].isEditing;
         newTodos[inx].text = noteRef.current[inx].value;
-        setTodos(newTodos);
+        todos = newTodos;
     }
 
     const clearInput = () => {
