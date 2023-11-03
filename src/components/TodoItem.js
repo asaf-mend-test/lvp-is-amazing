@@ -8,14 +8,14 @@ const TodoItem = inject('TodoStore')(observer(props => {
 
   return (
     <div>
-      <div key={props.todo.id} className="todo-item">
+      <div className="todo-item">
         <div className="todo-item-left">
           <input type="checkbox" onChange={(event) => TodoStore.checkTodo(props.todo, event)} checked={props.todo.completed} />
 
           {!props.todo.editing &&
           <div
             className={classnames({'todo-item-label': true, 'completed': props.todo.completed})}
-            onDoubleClick={(event) => TodoStore.editTodo(props.todo, event)}
+                 onDoubleClick={(event) => TodoStore.editTodo(props.todo, event)}
           >
             {props.todo.title}
           </div>
@@ -24,7 +24,7 @@ const TodoItem = inject('TodoStore')(observer(props => {
           {props.todo.editing &&
           <input
             className="todo-item-edit" type="text" autoFocus
-            defaultValue={props.todo.title}
+                defaultValue={props.todo.title}
             onBlur={(event) => TodoStore.doneEdit(props.todo, event)}
             onKeyUp={(event) => {
               if (event.key === 'Enter') {

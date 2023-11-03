@@ -29,7 +29,7 @@ class App extends Component {
             transitionLeaveTimeout={300}
           >
           {TodoStore.todosFiltered.map(todo =>
-            <TodoItem key={todo.id} todo={todo} />
+            <TodoItem todo={todo} />
           )}
           </ReactCSSTransitionGroup>
 
@@ -46,7 +46,7 @@ class App extends Component {
               transitionEnterTimeout={300}
               transitionLeaveTimeout={300}
             >
-            {TodoStore.todosCompletedCount > 0 &&
+            {TodoStore.todosCompletedCount > 1 &&
               <TodosClearCompleted />
             }
             </ReactCSSTransitionGroup>
